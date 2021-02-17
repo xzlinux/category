@@ -41,7 +41,8 @@ func main() {
 	}
 	defer db.Close()
 	db.SingularTable(true)
-
+	rp := repository.NewCategoryRepository(db)
+	rp.InitTable()
 	service.Init()
 
 	//注册handler
