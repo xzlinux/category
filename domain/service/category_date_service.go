@@ -2,7 +2,6 @@ package service
 
 import (
 	"github.com/xzlinux/category/domain/model"
-	"github.com/xzlinux/category/domain/respository"
 )
 
 type ICategoryDataService interface {
@@ -25,7 +24,7 @@ func NewCategoryDataService(categoryRepository respository.ICategoryRepository) 
 }
 
 func (u *CategoryDataService) AddCategory(category *model.Category) (int64, error) {
-	return u.CategoryRepository.CreateCategory(category)
+	return u.CategoryRepository.CreateCategory(category).Error
 }
 func (u *CategoryDataService) DeleteCategory(categoryID int64) error {
 	return u.CategoryRepository.DeleteCategoryByID(categoryID)
