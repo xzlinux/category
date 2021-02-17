@@ -23,7 +23,7 @@ type CategoryRepository struct {
 
 func NewCategoryRepository(db *gorm.DB) ICategoryRepository {
 
-	return &CategoryRepository{db}
+	return &CategoryRepository{mysqlDb: db}
 }
 
 func (u *CategoryRepository) InitTable() error {
@@ -59,6 +59,6 @@ func (u *CategoryRepository) FindCategoryByLevel(level uint32) (categorySlice []
 	return categorySlice, u.mysqlDb.Where("category_level=?", level).Find(categorySlice).Error
 }
 
-func (u *CategoryRepository) FindCategoryByParent(parent uint64) (categorySlice []model.Category, err error) {
+func (u *CategoryRepository) FindCategoryByParent(parent int64) (categorySlice []model.Category, err error) {
 	return categorySlice, u.mysqlDb.Where("category_parent=?", parent).Find(categorySlice).Error
 }
