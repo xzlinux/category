@@ -13,11 +13,11 @@ func GetConsulConfig(host string, port int64, prefix string) (config.Config, err
 		consul.WithPrefix(prefix),
 		consul.StripPrefix(true),
 	)
-	config, err := config.NewConfig()
+	conf, err := config.NewConfig()
 	if err != nil {
-		return config, err
+		return conf, err
 	}
-	err = config.Load(consulSource)
-	return config, err
+	err = conf.Load(consulSource)
+	return conf, err
 
 }
