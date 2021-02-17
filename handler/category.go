@@ -6,7 +6,7 @@ import (
 	"github.com/prometheus/common/log"
 	"github.com/xzlinux/category/domain/model"
 	"github.com/xzlinux/category/domain/service"
-	"github.com/xzlinux/category/proto/category"
+	category "github.com/xzlinux/category/proto/category"
 	"github.com/xzlinux/common"
 )
 
