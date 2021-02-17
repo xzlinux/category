@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/micro/go-micro/v2"
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry"
@@ -34,7 +35,7 @@ func main() {
 	)
 	//获取mysql 配置，路径中悄带前缀
 	mysqlInfo := common.GetMysqlFromConsul(consulConfig, "mysql")
-	db, err := gorm.Open("mysql", mysqlInfo.User+":"+mysqlInfo.Pwd+"@"+mysqlInfo.Host+"/"+mysqlInfo.Database+"?charset=utf8&parseTime=True&loc=Local")
+	db, err := gorm.Open("mysql", mysqlInfo.User+":"+mysqlInfo.Pwd+"@"+mysqlInfo.Host+":"+mysqlInfo.Port+"/"+mysqlInfo.Database+"?charset=utf8&parseTime=True&loc=Local")
 
 	if err != nil {
 		log.Error(err)
