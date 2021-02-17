@@ -59,7 +59,7 @@ func (c *Category) FindCategoryByName(ctx context.Context, request *category.Fin
 	return common.SwapTo(category, response)
 }
 func (c *Category) FindCategoryByID(ctx context.Context, request *category.FindByIdRequest, response *category.CategoryResponse) error {
-	category, err := c.CategoryDataService.FindCategoryByID(request.categoryId)
+	category, err := c.CategoryDataService.FindCategoryByID(request.CategoryId)
 	if err != nil {
 		return err
 	}
