@@ -5,7 +5,7 @@ import (
 	"github.com/micro/go-micro/v2"
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-plugins/registry/consul"
+	consul "github.com/micro/go-plugins/registry/consul/v2"
 	"github.com/xzlinux/category/common"
 	"github.com/xzlinux/category/domain/repository"
 	service2 "github.com/xzlinux/category/domain/service"
