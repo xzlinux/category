@@ -25,7 +25,7 @@ func NewCategoryDataService(categoryRepository repository.ICategoryRepository) I
 }
 
 func (u *CategoryDataService) AddCategory(category *model.Category) (int64, error) {
-	return u.CategoryRepository.CreateCategory(category).Error
+	return u.CategoryRepository.CreateCategory(category)
 }
 func (u *CategoryDataService) DeleteCategory(categoryID int64) error {
 	return u.CategoryRepository.DeleteCategoryByID(categoryID)
