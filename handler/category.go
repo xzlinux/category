@@ -83,12 +83,12 @@ func (c *Category) FindCategoryByParent(ctx context.Context, request *category.F
 	return nil
 }
 func (c *Category) FindAllCategory(ctx context.Context, request *category.FindAllRequest, response *category.FindAllResponse) error {
-	categorySlice,err := c.CategoryDataService.FindAllCategory()
+	categorySlice, err := c.CategoryDataService.FindAllCategory()
 	if err != nil {
-		return err 
+		return err
 	}
-	categoryToResponse(categorySlice,response)
-	)
+	categoryToResponse(categorySlice, response)
+
 	return nil
 }
 
