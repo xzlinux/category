@@ -11,7 +11,7 @@ import (
 )
 
 type Category struct {
-	CategoryDataService service.ICartDataService
+	CategoryDataService service.ICategoryDataService
 }
 
 func (c *Category) CreateCategory(ctx context.Context, request *category.CategoryRequest, response *category.CreateCategoryResponse) error {
