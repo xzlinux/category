@@ -34,14 +34,14 @@ func (u *CategoryDataService) UpdateCategory(category *model.Category) error {
 	return u.CategoryRepository.UpdateCategory(category)
 }
 func (u *CategoryDataService) FindCategoryByID(categoryID int64) (*model.Category, error) {
-	return &u.CategoryRepository.FindCategoryByID(categoryID)
+	return u.CategoryRepository.FindCategoryByID(categoryID)
 }
 func (u *CategoryDataService) FindAllCategory() ([]model.Category, error) {
 	return u.CategoryRepository.FindAll()
 }
 
 func (u *CategoryDataService) FindCategoryByName(categoryName string) (*model.Category, error) {
-	return &u.CategoryRepository.FindCategoryByName(categoryName)
+	return u.CategoryRepository.FindCategoryByName(categoryName)
 }
 
 func (u *CategoryDataService) FindCategoryByLevel(level uint32) ([]model.Category, error) {
