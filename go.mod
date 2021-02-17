@@ -10,6 +10,7 @@ require (
 	github.com/micro/go-plugins/config/source/consul v0.0.0-20200119172437-4fe21aa238fd
 	github.com/micro/go-plugins/config/source/consul/v2 v2.9.1
 	github.com/micro/go-plugins/registry/consul v0.0.0-20200119172437-4fe21aa238fd
+	github.com/micro/go-plugins/registry/consul/v2 v2.9.1 // indirect
 	github.com/prometheus/common v0.6.0
 	github.com/xzlinux/common v0.0.0-20210216125852-8d4edfe894ee
 	google.golang.org/protobuf v1.25.0
