@@ -23,7 +23,7 @@ type CategoryRepository struct {
 
 func NewCategoryRepository(db *gorm.DB) ICategoryRepository {
 
-	return &CategoryRepository{mysqlDb: db}
+	return &CategoryRepository{db}
 }
 
 func (u *CategoryRepository) InitTable() error {
