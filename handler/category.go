@@ -94,7 +94,7 @@ func (c *Category) FindAllCategory(ctx context.Context, request *category.FindAl
 
 func categoryToResponse(categorySlice []model.Category, response *category.FindAllResponse) {
 	for _, cg := range categorySlice {
-		cr := &category.categoryToResponse{}
+		cr := &category.CategoryToResponse{}
 		err := common.SwapTo(cg, cr)
 		if err != nil {
 			log.Error(err)
