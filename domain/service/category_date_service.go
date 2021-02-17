@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/xzlinux/category/domain/model"
+	"github.com/xzlinux/category/domain/repository"
 )
 
 type ICategoryDataService interface {
@@ -16,11 +17,11 @@ type ICategoryDataService interface {
 }
 
 type CategoryDataService struct {
-	CategoryRepository respository.ICategoryRepository
+	CategoryRepository repository.ICategoryRepository
 }
 
-func NewCategoryDataService(categoryRepository respository.ICategoryRepository) ICategoryDataService {
-	return &CategoryDataService{categoryRepository}
+func NewCategoryDataService(categoryRepository repository.ICategoryRepository) ICategoryDataService {
+	return &CategoryDataService{CategoryRepository: categoryRepository}
 }
 
 func (u *CategoryDataService) AddCategory(category *model.Category) (int64, error) {

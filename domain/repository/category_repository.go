@@ -27,6 +27,7 @@ func NewCategoryRepository(db *gorm.DB) ICategoryRepository {
 }
 
 func (u *CategoryRepository) InitTable() error {
+
 	return u.mysqlDb.CreateTable(&model.Category{}).Error
 }
 
@@ -58,6 +59,6 @@ func (u *CategoryRepository) FindCategoryByLevel(level uint32) (categorySlice []
 	return categorySlice, u.mysqlDb.Where("category_level=?", level).Find(categorySlice).Error
 }
 
-func (u *CategoryRepository) FindCategoryByParent(parent int64) (categorySlice []model.Category, err error) {
+func (u *CategoryRepository) FindCategoryByParent(parent uint64) (categorySlice []model.Category, err error) {
 	return categorySlice, u.mysqlDb.Where("category_parent=?", parent).Find(categorySlice).Error
 }
