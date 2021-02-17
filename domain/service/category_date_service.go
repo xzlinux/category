@@ -13,7 +13,7 @@ type ICategoryDataService interface {
 	FindAllCategory() ([]model.Category, error)
 	FindCategoryByName(string) (*model.Category, error)
 	FindCategoryByLevel(uint32) ([]model.Category, error)
-	FindCategoryByParent(uint64) ([]model.Category, error)
+	FindCategoryByParent(int64) ([]model.Category, error)
 }
 
 type CategoryDataService struct {
