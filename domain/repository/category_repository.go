@@ -40,6 +40,7 @@ func (u *CategoryRepository) FindCategoryByID(categoryID int64) (category *model
 
 func (u *CategoryRepository) CreateCategory(category *model.Category) (int64, error) {
 	fmt.Println("in createCategory: " + category.CategoryName)
+	fmt.Println("in createCategory: " + category.CategoryDescription)
 	return category.ID, u.mysqlDb.Create(category).Error
 }
 func (u *CategoryRepository) DeleteCategoryByID(categoryID int64) error {
