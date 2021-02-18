@@ -9,6 +9,7 @@ func SwapTo(request, category interface{}) (err error) {
 	fmt.Printf("request type is:", request)
 	fmt.Printf("request type is: %T\n", request)
 	dateByte, err := json.Marshal(request)
+	fmt.Printf("request:", string(dateByte))
 
 	if err != nil {
 		return
