@@ -26,9 +26,9 @@ const (
 const _ = proto.ProtoPackageIsVersion4
 
 type CategoryRequest struct {
-	//state         protoimpl.MessageState
-	//sizeCache     protoimpl.SizeCache
-	//unknownFields protoimpl.UnknownFields
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
 
 	CategoryName        string `protobuf:"bytes,1,opt,name=category_name,json=categoryName,proto3" json:"category_name,omitempty"`
 	CategoryLevel       uint32 `protobuf:"varint,2,opt,name=category_level,json=categoryLevel,proto3" json:"category_level,omitempty"`
