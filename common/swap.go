@@ -12,7 +12,7 @@ func SwapTo(request, category interface{}) (err error) {
 	fmt.Printf("request:", string(dateByte))
 
 	if err != nil {
-		return
+		fmt.Println(err)
 	}
 	err = json.Unmarshal(dateByte, category)
 	fmt.Println("datrt")
