@@ -63,6 +63,7 @@ func NewCategoryService(name string, c client.Client) CategoryService {
 }
 
 func (c *categoryService) CreateCategory(ctx context.Context, in *CategoryRequest, opts ...client.CallOption) (*CreateCategoryResponse, error) {
+	fmt.Println("proto :" + in.CategoryName)
 	req := c.c.NewRequest(c.name, "Category.CreateCategory", in)
 	out := new(CreateCategoryResponse)
 	err := c.c.Call(ctx, req, out, opts...)

@@ -2,12 +2,13 @@ package handler
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/prometheus/common/log"
+	"github.com/xzlinux/category/common"
 	"github.com/xzlinux/category/domain/model"
 	"github.com/xzlinux/category/domain/service"
 	category "github.com/xzlinux/category/proto/category"
-	"github.com/xzlinux/common"
 )
 
 type Category struct {
@@ -20,6 +21,7 @@ func (c *Category) CreateCategory(ctx context.Context, request *category.Categor
 	if err != nil {
 		return err
 	}
+	fmt.Println("handler CreateCategory:" + category.CategoryName)
 	categoryId, err := c.CategoryDataService.AddCategory(category)
 	if err != nil {
 		return err
