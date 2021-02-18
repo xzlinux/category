@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/micro/go-micro/v2"
@@ -23,7 +25,7 @@ func main() {
 	//注册中心
 	consulRegistry := consul.NewRegistry(func(options *registry.Options) {
 		options.Addrs = []string{
-			"127.0.0.1:8500",
+			"127.0.0.18500",
 		}
 	})
 
@@ -35,7 +37,8 @@ func main() {
 	)
 	//获取mysql 配置，路径中悄带前缀
 	mysqlInfo := common.GetMysqlFromConsul(consulConfig, "mysql")
-	db, err := gorm.Open("mysql", mysqlInfo.User+":"+mysqlInfo.Pwd+"@"+mysqlInfo.Host+":"+mysqlInfo.Port+"/"+mysqlInfo.Database+"?charset=utf8&parseTime=True&loc=Local")
+	connArgs := fmt.Sprintf("%s:%s@(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local", mysqlInfo.User, mysqlInfo.Pwd, mysqlInfo.Host, mysqlInfo.Port, mysqlInfo.Database)
+	db, err := gorm.Open("mysql", connArgs)
 
 	if err != nil {
 		log.Error(err)
