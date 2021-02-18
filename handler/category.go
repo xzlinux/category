@@ -16,13 +16,13 @@ type Category struct {
 }
 
 func (c *Category) CreateCategory(ctx context.Context, request *category.CategoryRequest, response *category.CreateCategoryResponse) error {
-	category2 := &model.Category{}
-	err := common.SwapTo(request, category2)
+	category := &model.Category{}
+	err := common.SwapTo(request, category)
 	if err != nil {
 		return err
 	}
-	fmt.Println("handler CreateCategory:" + category2.CategoryName)
-	categoryId, err := c.CategoryDataService.AddCategory(category2)
+	fmt.Println("handler CreateCategory:" + category.CategoryName)
+	categoryId, err := c.CategoryDataService.AddCategory(category)
 	if err != nil {
 		return err
 	}
