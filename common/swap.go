@@ -5,10 +5,9 @@ import (
 )
 
 func SwapTo(request, category interface{}) (err error) {
-	dateByte, err := json.Marshal(request)
+	dataByte, err := json.Marshal(request)
 	if err != nil {
 		return
 	}
-	dateByte, err = json.Marshal(category)
-	return err
+	return json.Unmarshal(dataByte, category)
 }
